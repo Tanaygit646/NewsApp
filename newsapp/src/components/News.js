@@ -2,11 +2,227 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 
 export class News extends Component {
+  articles = [
+    {
+      "source": { "id": "bloomberg", "name": "Bloomberg" },
+      "author": null,
+      "title": "China Factory Activity Worsens During Holiday in Official Survey - Bloomberg.com",
+      "description": "China’s factory activity contracted more than forecast, according to official figures released on Wednesday, as the longest-ever Lunar New Year holiday brought a lull in manufacturing and construction.",
+      "url": "https://www.bloomberg.com/news/articles/2026-03-04/china-factory-activity-worsens-as-record-holiday-hits-production",
+      "urlToImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iZnjF8wzGGGY/v1/1200x674.jpg",
+      "publishedAt": "2026-03-04T04:06:00Z",
+      "content": "Chinas factory activity contracted more than forecast, according to official figures released on Wednesday, as the longest-ever Lunar New Year holiday brought a lull in manufacturing and construction… [+263 chars]"
+    },
+    {
+      "source": { "id": null, "name": "The Texas Tribune" },
+      "author": "Ayden Runnels",
+      "title": "Steve Toth declares victory in race to unseat U.S. Rep. Dan Crenshaw - The Texas Tribune",
+      "description": "Steve Toth, one of the most conservative members of the Texas House, framed his challenge of Dan Crenshaw as a referendum on the ideological future of the Republican Party.",
+      "url": "http://www.texastribune.org/2026/03/03/texas-dan-crenshaw-steve-toth-republican-primary/",
+      "urlToImage": "https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/03/0721-First-Special-Session-BD-04-scaled.jpg?fit=2560%2C1649&quality=89&ssl=1",
+      "publishedAt": "2026-03-04T03:47:54Z",
+      "content": "Sign up for The Brief, The Texas Tribunes daily newsletter that keeps readers up to speed on the most essential Texas news.\r\nAudio recording is automated for accessibility. Humans wrote and edited th… [+3007 chars]"
+    },
+    {
+      "source": { "id": null, "name": "MLB Trade Rumors" },
+      "author": "Steve Adams",
+      "title": "MLB Issues 162-Game PED Suspension To Jurickson Profar - MLB Trade Rumors",
+      "description": "A second PED suspension will cost Braves outfielder Jurickson Profar the entire season. You can get all the details at MLB Trade Rumors.",
+      "url": "https://www.mlbtraderumors.com/2026/03/braves-jurickson-profar-ped-suspension-162-games.html",
+      "urlToImage": "https://cdn.mlbtraderumors.com/files/2026/03/jurickson-profar-braves-1024x683.jpg",
+      "publishedAt": "2026-03-04T03:24:34Z",
+      "content": "Major League Baseball announced that Braves outfielder Jurickson Profar has been suspended for 162 games after testing positive for exogenous testosterone, a performance-enhancing substance. The ban … [+6515 chars]"
+    },
+    {
+      "source": { "id": "the-washington-post", "name": "The Washington Post" },
+      "author": "Ellen Nakashima, John Hudson",
+      "title": "CIA station in Saudi capital hit in drone attack - The Washington Post",
+      "description": "The attack on the CIA station in Riyadh comes as Iran widens retaliation across the Middle East in the wake of the U.S.-Israeli bombing campaign.",
+      "url": "https://www.washingtonpost.com/national-security/2026/03/03/cia-saudi-arabia-drone-attack-iran/",
+      "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://cloudfront-us-east-1.images.arcpublishing.com/wapo/BMGL65NSLCYK2FJRD4PTVAKOC4.jpg&w=1440",
+      "publishedAt": "2026-03-04T03:16:00Z",
+      "content": "A suspected Iranian drone attack hit the CIAs station at the U.S. Embassy in Saudi Arabia on Monday, in what would amount to a symbolic victory for the Islamic republic as it lashes out at U.S. targe… [+89 chars]"
+    },
+    {
+      "source": { "id": null, "name": "MLB Trade Rumors" },
+      "author": "Anthony Franco",
+      "title": "Blue Jays Re-Sign Joe Mantiply To Minor League Deal - MLB Trade Rumors",
+      "description": "The Blue Jays bring back former All-Star reliever Joe Mantiply, who finished last season in their organization. MLB Trade Rumors has more.",
+      "url": "https://www.mlbtraderumors.com/2026/03/blue-jays-re-sign-joe-mantiply-to-minor-league-deal.html",
+      "urlToImage": "https://cdn.mlbtraderumors.com/files/2025/06/joe-mantiply-dbacks-1024x683.jpg",
+      "publishedAt": "2026-03-04T02:48:45Z",
+      "content": "The Blue Jays announced they’ve re-signed lefty reliever Joe Mantiply to a minor league contract. The ISE Baseball client receives a non-roster invite to MLB camp.\r\nMantiply finished last season in t… [+1534 chars]"
+    },
+    {
+      "source": { "id": null, "name": "On3.com" },
+      "author": "Griffin McVeigh",
+      "title": "Clock malfunctions cause 20-minute delay in Alabama-Georgia - On3",
+      "description": "Clock malfunctions took over a lot of time in the second half in Athens, causing for a 20-minute delay in the Alabama-Georgia matchup.",
+      "url": "https://www.on3.com/news/clock-malfunctions-cause-20-minute-delay-in-alabama-georgia/",
+      "urlToImage": "https://on3static.com/uploads/dev/assets/cms/2025/12/12085310/Copy-of-Copy-of-On3-Featured-Image-1200x630-2025-12-12T095128.687.png",
+      "publishedAt": "2026-03-04T02:08:29Z",
+      "content": "Pace was expected Tuesday night in Athens. Alabama and Georgia are two of the quickest-moving teams in college basketball, looking to score points in a hurry. Not much should be able to slow them dow… [+2160 chars]"
+    },
+    {
+      "source": { "id": "associated-press", "name": "Associated Press" },
+      "author": "Lisa Mascaro",
+      "title": "Tensions flare as lawmakers question Iran war’s costs, risks and strategy - AP News",
+      "description": "Questions are mounting at the U.S. Capitol over the Trump administration’s shifting rationale for going to war with Iran. Lawmakers are demanding answers over President Donald Trump's strategy, exit plan and costs to Americans in lives lost and dollars spent,…",
+      "url": "https://apnews.com/article/iran-war-marco-rubio-middle-east-9b9dfac9c40c8cf171e229e0a0a6980f",
+      "urlToImage": "https://dims.apnews.com/dims4/default/6a87c36/2147483647/strip/true/crop/5445x3628+0+1/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fca%2F40%2Fd85344676e8bb1a5951086eee5ae%2F57328b7cac50451a8dea7b9cdb9b00cf",
+      "publishedAt": "2026-03-04T01:22:00Z",
+      "content": "WASHINGTON (AP) Tensions flared as questions mounted at the U.S. Capitol on Tuesday over the Trump administrations shifting rationale for war with Iran as lawmakers demand answers over the strategy, … [+7436 chars]"
+    },
+    {
+      "source": { "id": "politico", "name": "Politico" },
+      "author": "Eric Bazail-Eimil",
+      "title": "Internal DHS watchdog: Noem is obstructing our work - Politico",
+      "description": "The Office of the Inspector General said in a letter he has been denied access to records in at least 10 investigations.",
+      "url": "https://www.politico.com/news/2026/03/03/dhs-noem-obstruction-00810919",
+      "urlToImage": "https://www.politico.com/dims4/default/resize/1200/quality/90/format/jpg?url=https%3A%2F%2Fstatic.politico.com%2F40%2F15%2F3eee700648bdba9b86e12f0d72d2%2Fu-s-congress-55457.jpg",
+      "publishedAt": "2026-03-04T00:58:17Z",
+      "content": "Cuffari said the lack of cooperation by DHS violates the law and longstanding principles of comity between internal watchdogs and the agencies they oversee.\r\nIn one particularly striking case, Cuffar… [+2906 chars]"
+    },
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "Fredreka Schouten, Arlette Saenz, Veronica Stracqualursi",
+      "title": "Texas Supreme Court stops Dallas County from counting late votes after confusion over new rules - CNN",
+      "description": "Changes to Election Day voting procedures in two Texas counties on Tuesday led to hundreds of voters being turned away from polling places, angry recriminations from candidates and an 11th hour scramble to delay poll closings.",
+      "url": "https://www.cnn.com/2026/03/03/politics/dallas-voter-rule-confusion-texas-primary",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/ap26062665012802.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2026-03-04T00:47:00Z",
+      "content": "Changes to Election Day voting procedures in two Texas counties on Tuesday led to hundreds of voters being turned away from polling places, angry recriminations from candidates and an 11th hour scram… [+3741 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Live Science" },
+      "author": "Aristos Georgiou",
+      "title": "Prehistoric water-dwelling weirdo with sideways teeth and a twisted jaw was already a 'living fossil' 275 million years ago - Live Science",
+      "description": "Scientists have described Tanyka amnicola, a newly identified species of prehistoric creature that lived 275 million years ago and had a bizarre twisted jaw with sideways-facing teeth.",
+      "url": "https://www.livescience.com/animals/extinct-species/prehistoric-water-dwelling-weirdo-with-sideways-teeth-and-a-twisted-jaw-was-already-a-living-fossil-275-million-years-ago",
+      "urlToImage": "https://cdn.mos.cms.futurecdn.net/FJGJa9D8WqJGyAQKGjPK7G-1920-80.jpg",
+      "publishedAt": "2026-03-04T00:05:00Z",
+      "content": null
+    },
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "Simone McCarthy",
+      "title": "China is about to show the world its plan to win the future - CNN",
+      "description": "China spent the last five years cultivating innovation and new technology at home. The next half decade will be dedicated to deploying the fruits of its labor to transform its economy – and its place in the world.",
+      "url": "https://www.cnn.com/2026/03/03/china/china-two-sessions-tech-future-intl-hnk",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2262745760.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2026-03-03T23:19:59Z",
+      "content": "China spent the last five years cultivating innovation and new technology at home. The next half decade will be dedicated to deploying the fruits of its labor to transform its economy and its place i… [+7534 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Live Science" },
+      "author": "Shreejaya Karantha",
+      "title": "Mysterious 'dots' discovered by JWST may be the 1st stars in the universe on the verge of collapse - Live Science",
+      "description": "A new study suggests that \"little red dots\" spied by the James Webb telescope could be the universe's short-lived first generation of gigantic stars, challenging an existing theory.",
+      "url": "https://www.livescience.com/space/astronomy/mysterious-little-red-dots-discovered-by-james-webb-telescope-may-be-the-first-stars-in-the-universe-on-the-verge-of-collapse",
+      "urlToImage": "https://cdn.mos.cms.futurecdn.net/B9bYuL7b8688a6VV4bfGti-1280-80.jpg",
+      "publishedAt": "2026-03-03T22:04:17Z",
+      "content": null
+    },
+    {
+      "source": { "id": null, "name": "PhoneArena" },
+      "author": "Victor Hristov",
+      "title": "Samsung Galaxy S26 Ultra vs iPhone 17 Pro Max: Sample Photos Comparison - PhoneArena",
+      "description": "The Galaxy S26 Ultra brings faster apertures and better image processing. Is that enough to beat the iPhone?",
+      "url": "https://www.phonearena.com/news/samsung-galaxy-s26-ultra-vs-iphone-17-pro-max-sample-photos-comparison_id178493",
+      "urlToImage": "https://m-cdn.phonearena.com/images/article/178493-wide-two_1200/Samsung-Galaxy-S26-Ultra-vs-iPhone-17-Pro-Max-Sample-Photos-Comparison.jpg",
+      "publishedAt": "2026-03-03T21:36:33Z",
+      "content": "A discussion is a place, where people can voice their opinion, no matter if it\r\n is positive, neutral or negative. However, when posting, one must stay true to the topic, and not just share some\r\n ra… [+1082 chars]"
+    },
+    {
+      "source": { "id": "business-insider", "name": "Business Insider" },
+      "author": "Ben Shimkus",
+      "title": "Palantir wants its old employees back: 'The shire is calling' - Business Insider",
+      "description": "A Palantir exec is asking ex-employees to come back. In a post filled with Lord of the Rings references, he emphasized the intensity of the new roles.",
+      "url": "https://www.businessinsider.com/palantir-former-employees-return-shire-lord-of-the-rings-2026-3",
+      "urlToImage": "https://i.insider.com/69a7489e1fb3fcb42648da37?width=1200&format=jpeg",
+      "publishedAt": "2026-03-03T21:15:00Z",
+      "content": "Palantir is making a direct appeal to its alum complete with more \"Lord of the Rings\" references.\r\nOn Monday, Ted Mabrey, the company's global head of commercial, called on \"former hobbits\" to return… [+2337 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Hollywood Reporter" },
+      "author": "Angie Han",
+      "title": "‘RJ Decker’ Review: Scott Speedman in ABC’s Breezy but Unconvincing Crime Procedural - The Hollywood Reporter",
+      "description": "Adapted by Rob Doherty ('Elementary') from a novel by Carl Hiaasen, the series follows a Tampa photojournalist who reinvents himself as a private investigator after a stint in prison.",
+      "url": "http://www.hollywoodreporter.com/tv/tv-reviews/rj-decker-review-scott-speedman-abc-carl-hiaasen-1236519592/",
+      "urlToImage": "https://www.hollywoodreporter.com/wp-content/uploads/2025/09/RJ-Decker-Disney-Dana-Hawley-2-H-2025.jpg?w=1296&h=730&crop=1",
+      "publishedAt": "2026-03-03T21:08:42Z",
+      "content": "Florida, in the public imagination, is not like other states. Florida is a wild and lawless swamp, even the parts of it that are paved over with high-rises and run by people in tailored suits. It’s a… [+5554 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Variety" },
+      "author": "Rebecca Rubin",
+      "title": "Movie Theater Chain iPic Files for Bankruptcy - Variety",
+      "description": "iPic Theaters, a cinema chain that specializes in dine-in service, has filed for bankruptcy protection for a second time.",
+      "url": "https://variety.com/2026/film/news/movie-theater-chain-ipic-bankruptcy-1236678473/",
+      "urlToImage": "https://variety.com/wp-content/uploads/2019/08/ipic-theater.jpg?w=1000&h=563&crop=1",
+      "publishedAt": "2026-03-03T20:55:00Z",
+      "content": "iPic Theaters, a cinema chain that specializes in dine-in service, has filed for bankruptcy protection for a second time. \r\nThe company is pursuing a sale through Chapter 11 in Florida federal court … [+2260 chars]"
+    },
+    {
+      "source": { "id": null, "name": "TMZ" },
+      "author": "TMZ Staff",
+      "title": "Adin Ross' Sister Madeline Dead at 36 - TMZ",
+      "description": "Madeline Ross -- the sister of popular streamer Adin Ross -- has died.",
+      "url": "https://www.tmz.com/2026/03/03/adin-ross-sister-dead/",
+      "urlToImage": "https://imagez.tmz.com/image/66/16by9/2026/02/23/66737ec8eba54471ab5c8447d2f30e88_xl.jpg",
+      "publishedAt": "2026-03-03T20:30:45Z",
+      "content": "Madeline was a very private person, and there aren't many public details about her. She is one of three sisters Adin grew up with. One of their other sisters, Naomi, is also an influencer."
+    },
+    {
+      "source": { "id": null, "name": "SB Nation" },
+      "author": "James Dator",
+      "title": "Why Kon Knueppel deserves the NBA Rookie of the Year, but Cooper Flagg might get it anyway - SB Nation",
+      "description": "The race for the ROY is hotter than it’s ever been.",
+      "url": "https://www.sbnation.com/nba/1104929/why-kon-knueppel-deserves-the-nba-rookie-of-the-year-but-cooper-flagg-might-get-it-anyway",
+      "urlToImage": "https://platform.sbnation.com/wp-content/uploads/sites/2/2026/03/gettyimages-2258377621.jpg?quality=90&strip=all&crop=0%2C10.728179225192%2C100%2C78.543641549615&w=1200",
+      "publishedAt": "2026-03-03T19:15:02Z",
+      "content": "The careers of Cooper Flagg and Kon Knueppel will be inexorably linked throughout their time in the NBA. Thats bound to happen when you have two teammates who are close friends, college roommates, To… [+6650 chars]"
+    },
+    {
+      "source": { "id": "cbs-news", "name": "CBS News" },
+      "author": "Anna  Schecter, Richard  Esposito, Pat  Milton",
+      "title": "Social media believed to be tied to Austin shooter is full of antisemitic, anti-Christian, misogynistic posts - CBS News",
+      "description": "The attacker who opened fire at a bar in Austin, Texas, over the weekend appears to have posted antisemitic, anti-Christian and misogynistic messages on social media.",
+      "url": "https://www.cbsnews.com/news/austin-shooting-social-media-posts/",
+      "urlToImage": "https://assets2.cbsnewsstatic.com/hub/i/r/2026/03/03/b285fcff-9669-411b-bb92-99f76631e8ae/thumbnail/1200x630/e68bd8f97da09b9eea350c909a6a8eda/gettyimages-2264293847.jpg",
+      "publishedAt": "2026-03-03T19:01:00Z",
+      "content": "The attacker who gunned down revelers at a bar in Austin, Texas, over the weekend appears to have posted antisemitic, anti-Christian and misogynistic posts in the year and a half leading up to the de… [+4053 chars]"
+    },
+    {
+      "source": { "id": "wired", "name": "Wired" },
+      "author": "Andy Greenberg",
+      "title": "A Possible US Government iPhone-Hacking Toolkit Is Now in the Hands of Foreign Spies and Criminals - WIRED",
+      "description": "A highly sophisticated set of iPhone hijacking techniques has likely infected tens of thousands of phones or more. Clues suggest it was originally built for the US government.",
+      "url": "https://www.wired.com/story/coruna-iphone-hacking-toolkit-us-government/",
+      "urlToImage": "https://media.wired.com/photos/69a5fee53552f3bcbc80c606/191:100/w_1280,c_limit/sec-phone-hacking-2252317890.jpg",
+      "publishedAt": "2026-03-03T19:01:00Z",
+      "content": "Google notes that Apple patched vulnerabilities used by Coruna in the latest versions of its mobile operating system, iOS 26, so its exploitation techniques are only confirmed to work against iOS 13 … [+3956 chars]"
+    }
+  ]
+  constructor(){
+    super();
+    console.log("hello");
+    this.state={
+      articles:this.articles,
+      loading:false
+    }
+  }
   render() {
     return (
-      <div>
-        This is news item
-        <NewsItem/>
+      <div className="container my-3">
+        <h2 className="container my-3">NewsMonkey - Top Headlines</h2>
+        <div className="row">
+          {this.state.articles.map((e)=>{
+            return <div className="col-md-4" key={e.url}>
+            <NewsItem title={e.title.slice(0,45)} description={e.description.slice(0,88)} imageUrl={e.urlToImage} newsUrl = {e.url}/>
+          </div>
+          })}
+        </div>
       </div>
     )
   }
