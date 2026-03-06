@@ -7,7 +7,8 @@ export class News extends Component {
     console.log("hello");
     this.state={
       articles:[],
-      loading:false
+      loading:false,
+      page:1
     }
   }
 
@@ -18,16 +19,44 @@ export class News extends Component {
     console.log(parsedData);
     this.setState({articles:parsedData.articles});
   }
+
+  handleNextClick= async()=>{
+    if(this.state.page+1 > Math.ceil(this.state.totalResults/2)){
+
+    }else{
+    let url = `https://newsapi.org/v2/everything?q=apple&from=2026-03-05&to=2026-03-05&sortBy=popularity&apiKey=a3063431959341b48ca277d919a5e679&page=${this.state.page+1}&pagesize=20`
+    let data =await fetch(url);
+    let parsedData = await data.json();
+    this.setState({
+      articles:parsedData.articles,
+      page: this.state.page+1
+    });
+  }
+  }
+  handlePreviousClick= async()=>{
+    let url = `https://newsapi.org/v2/everything?q=apple&from=2026-03-05&to=2026-03-05&sortBy=popularity&apiKey=a3063431959341b48ca277d919a5e679&page=${this.state.page-1}&pagesize=20`
+    let data =await fetch(url);
+    let parsedData = await data.json();
+    this.setState({
+      articles:parsedData.articles,
+      page: this.state.page-1
+    });
+  }
+
   render() {
     return (
       <div className="container my-3">
-        <h2 className="container my-3">NewsMonkey - Top Headlines</h2>
+        <h1 className="container my-3">NewsMonkey - Top Headlines</h1>
         <div className="row">
           {this.state.articles.map((e)=>{
             return <div className="col-md-4" key={e.url}>
             <NewsItem title={e.title} description={e.description} imageUrl={e.urlToImage} newsUrl = {e.url}/>
           </div>
           })}
+        </div>
+        <div className='container d-flex justify-content-between'>
+          <button type="button" class="btn btn-dark" onClick={this.handlePreviousClick}>&larr; previous</button>
+          <button type="button" class="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
         </div>
       </div>
     )
