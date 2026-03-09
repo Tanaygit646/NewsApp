@@ -2,10 +2,16 @@ import React, { Component } from "react";
 
 export class NewsItem extends Component {
   render() {
-    let { title, description, imageUrl, newsUrl } = this.props;
+    let { title, description, imageUrl, newsUrl,author,date,source } = this.props;
     return (
       <div>
         <div className="card">
+          <span
+    className="badge bg-danger position-absolute"
+    style={{zIndex: 1 }}
+  >
+    {source}
+  </span>
           <img
             src={
               !imageUrl
@@ -21,6 +27,7 @@ export class NewsItem extends Component {
             <a href={newsUrl} className="btn btn-primary">
               Go somewhere
             </a>
+            <p className="card-text"><small className="text-muted">By {!author?"Unknown":author} at {new Date(date).toGMTString()}</small></p>
           </div>
         </div>
       </div>
