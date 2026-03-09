@@ -16,6 +16,12 @@ export class News extends Component {
     pagesize : PropTypes.number,
     category:PropTypes.string
   };
+  capitalizeFirstLetter=(string) =>{
+  if (string.length === 0) {
+    return "";
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
   constructor(props){
     super(props);
@@ -24,7 +30,8 @@ export class News extends Component {
       articles:[],
       loading:false,
       page:1
-    }
+    };
+    document.title = `${this.capitalizeFirstLetter(this.props.category)}-NewsMonkey`;
   }
 
   async componentDidMount(){
