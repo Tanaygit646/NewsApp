@@ -40,7 +40,7 @@ export class News extends Component {
   }
 
   async componentDidMount(){
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a3063431959341b48ca277d919a5e679&pagesize=${this.props.pagesize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&pagesize=${this.props.pagesize}`;
 
     this.setState({loading:true});
 
@@ -58,7 +58,7 @@ export class News extends Component {
 
   // handleNextClick= async()=>{
   //   if(!(this.state.page+1 > Math.ceil(this.state.totalResults/this.props.pagesize))){
-  //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a3063431959341b48ca277d919a5e679&page=${this.state.page+1}&pagesize=${this.props.pagesize}`
+  //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page+1}&pagesize=${this.props.pagesize}`
   //   this.setState({loading:true});
   //   let data =await fetch(url);
   //   let parsedData = await data.json();
@@ -71,7 +71,7 @@ export class News extends Component {
   // }
 
   // handlePreviousClick= async()=>{
-  //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a3063431959341b48ca277d919a5e679&page=${this.state.page-1}&pagesize=${this.props.pagesize}`
+  //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page-1}&pagesize=${this.props.pagesize}`
   //   this.setState({loading:true})
   //   let data =await fetch(url);
   //   let parsedData = await data.json();
@@ -84,7 +84,7 @@ export class News extends Component {
 
   fetchMoreData = async () => {
 
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a3063431959341b48ca277d919a5e679&page=${this.state.page+1}&pagesize=${this.props.pagesize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page+1}&pagesize=${this.props.pagesize}`;
 
     let data = await fetch(url);
     let parsedData = await data.json();
