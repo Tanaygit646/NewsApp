@@ -99,7 +99,7 @@ export class News extends Component {
     return (
       <div className="container my-3">
 
-        <h1 className="container my-3 text-center" style={{margin:'40px 0px'}}>
+        <h1 className="container my-1 text-center" style={{marginTop:'68px'}}>
           NewsMonkey - Top Headlines
         </h1>
 
